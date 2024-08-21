@@ -28,6 +28,20 @@ function PlayerDefaultState:update(dt)
         -- self.entity:changeAnimation('walk-down')
     end
 
+    --check for wall collisions with hitbox and reset player position if so
+    local hx = self.entity.width / 2
+    local hy = self.entity.height / 2
+    if self.entity.hitx < 0 then
+        self.entity.x = 0 - hx
+    elseif self.entity.hitx > VIRTUAL_WIDTH then
+        self.entity.x = VIRTUAL_WIDTH - hx
+    elseif self.entity.hity < 0 then
+        self.entity.y = 0 - hy
+    elseif self.entity.hity > VIRTUAL_HEIGHT then
+        self.entity.y = VIRTUAL_HEIGHT - hy
+    end
+
+
     if love.keyboard.isDown('e') then
         if self.entity.gcdrolled == false then
             local bullet = PlayerBullet(self.entity)

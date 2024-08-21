@@ -152,7 +152,7 @@ function Stage1:mech2()
                 player = self.player,
 
                 degree = -90,         -- direction for knockback
-                duration = .5         -- effect duration if applicable
+                duration = .7         -- effect duration 
 
             }
             self.stage:addAOE(aoe1)
@@ -172,7 +172,7 @@ function Stage1:mech2()
                 player = self.player,
 
                 degree = 90,          -- direction for knockback
-                duration = .5         -- effect duration if applicable
+                duration = .7         -- effect duration 
 
             }
             self.stage:addAOE(aoe1)
@@ -191,7 +191,7 @@ function Stage1:mech2()
                 snaptime = 1.5,               -- time telegraph will show/when the snapshot occurs
                 player = self.player,
                 degree = -90,         -- direction for knockback
-                duration = .5         -- effect duration if applicable
+                duration = .7         -- effect duration 
 
             }
             self.stage:addAOE(aoe1)
@@ -210,7 +210,7 @@ function Stage1:mech2()
                 snaptime = 1.5,               -- time telegraph will show/when the snapshot occurs
                 player = self.player,
                 degree = 90,          -- direction for knockback
-                duration = .5         -- effect duration if applicable
+                duration = .7         -- effect duration 
 
             }
             self.stage:addAOE(aoe1)
@@ -229,9 +229,8 @@ function Stage1:mech2()
                 snaptime = 1.5,               -- time telegraph will show/when the snapshot occurs
                 player = self.player,
 
-                effect = 'knockback', -- 'knockback', debuff name
                 degree = -90,         -- direction for knockback
-                duration = .5         -- effect duration if applicable
+                duration = .7         -- effect duration 
 
             }
             self.stage:addAOE(aoe1)
