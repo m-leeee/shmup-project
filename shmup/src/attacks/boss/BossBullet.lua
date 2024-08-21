@@ -1,3 +1,6 @@
+--[[
+    Bullets that enemies shoot. Follows a given direction linearly.
+]]
 BossBullet = Class {}
 
 function BossBullet:init(def)

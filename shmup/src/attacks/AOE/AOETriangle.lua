@@ -1,3 +1,7 @@
+--[[
+    Standard AOE triangle.
+]]
+
 AOETriangle = Class { __includes = AOE }
 
 function AOETriangle:init(def)

@@ -1,3 +1,6 @@
+--[[
+    Standard bullets players will shoot. Goes from player position towards the top of the screen.
+]]
 PlayerBullet = Class{}
 
 function PlayerBullet:init(player)

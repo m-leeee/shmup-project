@@ -1,3 +1,6 @@
+--[[
+    Melee attack for players, hitting everything in a determined radius. Acts much like AOECircle, but centered on the player. 
+]]
 PlayerMelee = Class{}
 
 function PlayerMelee:init(player)

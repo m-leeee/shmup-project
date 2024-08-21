@@ -1,5 +1,7 @@
+--[[
+    This class is meant to be a general template for all AOE type classes.
+]]
 AOE = Class {}
--- This class is meant to be a general template for all AOE type classes.
 
 function AOE:init(def)
     --coordinates

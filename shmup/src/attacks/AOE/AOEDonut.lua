@@ -1,3 +1,6 @@
+--[[
+    Standard AOE in donut shape. 
+]]
 AOEDonut = Class { __includes = AOE }
 
 function AOEDonut:init(def)

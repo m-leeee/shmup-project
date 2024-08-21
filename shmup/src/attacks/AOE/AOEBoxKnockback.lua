@@ -1,3 +1,7 @@
+--[[
+    Box AOE that puts player into knockback state
+]]
+
 AOEBoxKnockback = Class { __includes = AOEBox }
 
 function AOEBoxKnockback:init(def)

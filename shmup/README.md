@@ -1,8 +1,8 @@
 
-Game: 
+##Game: 
 shoot em up style game with an influence of mmo style mechanics on its gameplay to deviate from a standard shmup. standard shmups are generally bullet patterns you read and dodge accordingly, whereas MMO mechanics tend to be more of a puzzle for players to execute solutions for. 
 
-For reference:
+###For reference:
 rabbit&steel trailer - a game recently released in spring 2024 with an identical goal.
 https://www.youtube.com/watch?v=mZfcz9XtYVQ
 ffxiv example fight with a variety of mechanics (can skim, some parts are easier to understand w/o context than others)  

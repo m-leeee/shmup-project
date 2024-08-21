@@ -1,3 +1,6 @@
+--[[
+    Handles sprite animations. 
+]]
 Animation = Class {}
 
 function Animation:init(def)

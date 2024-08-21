@@ -1,3 +1,7 @@
+--[[
+    Standard Box AOE
+]]
+
 AOEBox = Class { __includes = AOE }
 
 function AOEBox:init(def)

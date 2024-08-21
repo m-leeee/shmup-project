@@ -52,7 +52,6 @@ function Stage1:mech1()
         Timer.after(t, function()
             local bullet1 = BossBullet {
                 boss = self.boss,
-
                 degree = 0,
                 radius = 5,
                 damage = 1,
@@ -60,7 +59,6 @@ function Stage1:mech1()
             }
             local bullet2 = BossBullet {
                 boss = self.boss,
-
                 degree = 45,
                 radius = 5,
                 damage = 1,
@@ -68,7 +66,6 @@ function Stage1:mech1()
             }
             local bullet3 = BossBullet {
                 boss = self.boss,
-
                 degree = 90,
                 radius = 5,
                 damage = 1,
@@ -76,7 +73,6 @@ function Stage1:mech1()
             }
             local bullet4 = BossBullet {
                 boss = self.boss,
-
                 degree = 135,
                 radius = 5,
                 damage = 1,
@@ -84,7 +80,6 @@ function Stage1:mech1()
             }
             local bullet5 = BossBullet {
                 boss = self.boss,
-
                 degree = 180,
                 radius = 5,
                 damage = 1,
@@ -92,7 +87,6 @@ function Stage1:mech1()
             }
             local bullet6 = BossBullet {
                 boss = self.boss,
-
                 degree = -45,
                 radius = 5,
                 damage = 1,
@@ -100,7 +94,6 @@ function Stage1:mech1()
             }
             local bullet7 = BossBullet {
                 boss = self.boss,
-
                 degree = -90,
                 radius = 5,
                 damage = 1,
@@ -108,7 +101,6 @@ function Stage1:mech1()
             }
             local bullet8 = BossBullet {
                 boss = self.boss,
-
                 degree = -135,
                 radius = 5,
                 damage = 1,
@@ -153,14 +145,12 @@ function Stage1:mech2()
                 x = 0,
                 y = 0,
 
-                xlength = VIRTUAL_WIDTH,      -- box only
-                ylength = VIRTUAL_HEIGHT / 5, -- box only --TODO: clean this up 
-
+                xlength = VIRTUAL_WIDTH,     
+                ylength = VIRTUAL_HEIGHT / 5,
                 damage = 5,                   -- how much damage this AOE will inflict
                 snaptime = 1.5,               -- time telegraph will show/when the snapshot occurs
                 player = self.player,
 
-                effect = 'knockback', -- 'knockback', debuff name
                 degree = -90,         -- direction for knockback
                 duration = .5         -- effect duration if applicable
 
@@ -174,14 +164,13 @@ function Stage1:mech2()
                 x = 0,
                 y = VIRTUAL_HEIGHT / 5,
 
-                xlength = VIRTUAL_WIDTH,      -- box only
-                ylength = VIRTUAL_HEIGHT / 5, -- box only
+                xlength = VIRTUAL_WIDTH,
+                ylength = VIRTUAL_HEIGHT / 5,
 
                 damage = 5,                   -- how much damage this AOE will inflict
                 snaptime = 1.5,               -- time telegraph will show/when the snapshot occurs
                 player = self.player,
 
-                effect = 'knockback', -- 'knockback', debuff name
                 degree = 90,          -- direction for knockback
                 duration = .5         -- effect duration if applicable
 
@@ -195,14 +184,12 @@ function Stage1:mech2()
                 x = 0,
                 y = VIRTUAL_HEIGHT / 5 * 2,
 
-                xlength = VIRTUAL_WIDTH,      -- box only
-                ylength = VIRTUAL_HEIGHT / 5, -- box only
+                xlength = VIRTUAL_WIDTH,
+                ylength = VIRTUAL_HEIGHT / 5,
 
                 damage = 5,                   -- how much damage this AOE will inflict
                 snaptime = 1.5,               -- time telegraph will show/when the snapshot occurs
                 player = self.player,
-
-                effect = 'knockback', -- 'knockback', debuff name
                 degree = -90,         -- direction for knockback
                 duration = .5         -- effect duration if applicable
 
@@ -216,14 +203,12 @@ function Stage1:mech2()
                 x = 0,
                 y = VIRTUAL_HEIGHT / 5 * 3,
 
-                xlength = VIRTUAL_WIDTH,      -- box only
-                ylength = VIRTUAL_HEIGHT / 5, -- box only
+                xlength = VIRTUAL_WIDTH,
+                ylength = VIRTUAL_HEIGHT / 5,
 
                 damage = 5,                   -- how much damage this AOE will inflict
                 snaptime = 1.5,               -- time telegraph will show/when the snapshot occurs
                 player = self.player,
-
-                effect = 'knockback', -- 'knockback', debuff name
                 degree = 90,          -- direction for knockback
                 duration = .5         -- effect duration if applicable
 
@@ -237,8 +222,8 @@ function Stage1:mech2()
                 x = 0,
                 y = VIRTUAL_HEIGHT / 5 * 4,
 
-                xlength = VIRTUAL_WIDTH,      -- box only
-                ylength = VIRTUAL_HEIGHT / 5, -- box only
+                xlength = VIRTUAL_WIDTH,
+                ylength = VIRTUAL_HEIGHT / 5,
 
                 damage = 5,                   -- how much damage this AOE will inflict
                 snaptime = 1.5,               -- time telegraph will show/when the snapshot occurs
@@ -268,7 +253,7 @@ function Stage1:mech3()
                 x = self.player.hitx,
                 y = self.player.hity,
 
-                radius = 20,  -- circle and donut
+                radius = 20,
 
                 damage = 3,   -- how much damage this AOE will inflict
                 snaptime = 1, -- time telegraph will show/when the snapshot occurs
@@ -286,7 +271,7 @@ function Stage1:mech3()
                 x = self.player.hitx,
                 y = self.player.hity,
 
-                radius = 20,  -- circle and donut
+                radius = 20,
 
                 damage = 3,   -- how much damage this AOE will inflict
                 snaptime = 1, -- time telegraph will show/when the snapshot occurs
@@ -308,7 +293,7 @@ function Stage1:mech3()
                 x = xx,
                 y = yy,
 
-                radius = 20,  -- circle and donut
+                radius = 20,
 
                 damage = 3,   -- how much damage this AOE will inflict
                 snaptime = 1, -- time telegraph will show/when the snapshot occurs
@@ -325,8 +310,8 @@ function Stage1:mech3()
                 x = xx,
                 y = yy,
 
-                radius = 130,    -- circle and donut
-                inradius = 19.5, -- donut only
+                radius = 130,
+                inradius = 19.5,
 
                 damage = 3,      -- how much damage this AOE will inflict
                 snaptime = 1,    -- time telegraph will show/when the snapshot occurs
@@ -353,10 +338,10 @@ function Stage1:mech4()
                 x = VIRTUAL_WIDTH / 2,
                 y = VIRTUAL_HEIGHT / 2,
 
-                x2 = 0,              -- triangle only
-                y2 = VIRTUAL_HEIGHT, -- triangle only
-                x3 = VIRTUAL_WIDTH,  -- triangle only
-                y3 = VIRTUAL_HEIGHT, -- triangle only
+                x2 = 0,
+                y2 = VIRTUAL_HEIGHT,
+                x3 = VIRTUAL_WIDTH,
+                y3 = VIRTUAL_HEIGHT,
 
                 damage = 3,          -- how much damage this AOE will inflict
                 snaptime = 1,        -- time telegraph will show/when the snapshot occurs
@@ -374,10 +359,10 @@ function Stage1:mech4()
                 x = VIRTUAL_WIDTH / 2,
                 y = VIRTUAL_HEIGHT / 2,
 
-                x2 = 0,              -- triangle only
-                y2 = 0,              -- triangle only
-                x3 = 0,              -- triangle only
-                y3 = VIRTUAL_HEIGHT, -- triangle only
+                x2 = 0,
+                y2 = 0,
+                x3 = 0,
+                y3 = VIRTUAL_HEIGHT,
 
                 damage = 3,          -- how much damage this AOE will inflict
                 snaptime = 1,        -- time telegraph will show/when the snapshot occurs
@@ -395,10 +380,10 @@ function Stage1:mech4()
                 x = VIRTUAL_WIDTH / 2,
                 y = VIRTUAL_HEIGHT / 2,
 
-                x2 = 0,             -- triangle only
-                y2 = 0,             -- triangle only
-                x3 = VIRTUAL_WIDTH, -- triangle only
-                y3 = 0,             -- triangle only
+                x2 = 0,
+                y2 = 0,
+                x3 = VIRTUAL_WIDTH,
+                y3 = 0,
 
                 damage = 3,         -- how much damage this AOE will inflict
                 snaptime = 1,       -- time telegraph will show/when the snapshot occurs
@@ -416,10 +401,10 @@ function Stage1:mech4()
                 x = VIRTUAL_WIDTH / 2,
                 y = VIRTUAL_HEIGHT / 2,
 
-                x2 = VIRTUAL_WIDTH,  -- triangle only
-                y2 = 0,              -- triangle only
-                x3 = VIRTUAL_WIDTH,  -- triangle only
-                y3 = VIRTUAL_HEIGHT, -- triangle only
+                x2 = VIRTUAL_WIDTH,
+                y2 = 0,
+                x3 = VIRTUAL_WIDTH,
+                y3 = VIRTUAL_HEIGHT,
 
                 damage = 3,          -- how much damage this AOE will inflict
                 snaptime = 1,        -- time telegraph will show/when the snapshot occurs
@@ -437,7 +422,6 @@ end
 
 function Stage1:update(dt)
     self.stage:update(dt)
-    -- TODO: phase changes
 
     if self.boss.hppercent > .9 then
         self.boss.phase = 1

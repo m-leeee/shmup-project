@@ -1,3 +1,7 @@
+--[[
+    Standard AOE Circle.
+]]
+
 AOECircle = Class { __includes = AOE }
 
 function AOECircle:init(def)
