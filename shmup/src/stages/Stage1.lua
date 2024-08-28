@@ -46,6 +46,7 @@ end
 
 function Stage1:mech1()
     -- TENNIS BALL BARRAGE
+    self.boss:recenterMove()
     local t = 1
     if self.mech1counter == 1 then
         self.mech1counter = self.mech1counter + 1
@@ -122,6 +123,10 @@ function Stage1:mech1()
 end
 
 function Stage1:mech2()
+    if self.boss.movementactive == false then
+        self.boss:trafficMove()
+    end
+
     -- TRAFFIC
     local r = math.random(1, 5)
     local t
@@ -327,6 +332,7 @@ end
 
 function Stage1:mech4()
     -- SANDSTORM
+    self.boss:recenterMove()
     local t = 1
     if self.mech4counter == 1 then
         self.mech4counter = self.mech4counter + 1
