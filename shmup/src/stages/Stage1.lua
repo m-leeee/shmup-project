@@ -248,6 +248,7 @@ end
 
 function Stage1:mech3()
     -- FRISBEE BOMB TOSS
+    self.boss:recenterMove()
     local t = 1.3
     if self.mech3counter == 1 then
         Timer.after(t, function()

@@ -17,21 +17,22 @@ function Shiba:trafficMove()
         local targetx2 = VIRTUAL_WIDTH/4*3 - self.width/2
         local targety2 = VIRTUAL_HEIGHT/5 + 10
 
-        local roll1 = math.random(1,2)
-        local roll2 = math.random(1,2)
+        local roll = math.random(1,2)
 
         local targetx
         local targety
 
-        if roll1 == 1 then
-                targetx = targetx1
-        else
+        if self.x == targetx1 then
                 targetx = targetx2
+        elseif self.x == targetx2 then 
+                targetx = targetx1
+        else 
+                self.x = targetx1
         end
-        if roll2 == 1 then
-                targety = targety1
+        if roll == 1 then
+                targety = targety1 + math.random(-10,10)
         else
-                targety = targety2
+                targety = targety2 + math.random(-10,10)
         end
 
         Timer.tween(.1, { [self] = {x = targetx, y = targety} })
