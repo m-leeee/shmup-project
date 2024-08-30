@@ -12,10 +12,10 @@ function PlayState:init()
         x = VIRTUAL_WIDTH / 2 - 8,
         y = VIRTUAL_HEIGHT / 2 - 11,
 
-        width = 20,  --256,
-        height = 20, --256,
-        hboxw = 12,
-        hboxh = 12,
+        width = 26,  --256,
+        height = 41, --256,
+        hboxw = 13,
+        hboxh = 13,
 
         health = 6,
         maxhealth = 7,

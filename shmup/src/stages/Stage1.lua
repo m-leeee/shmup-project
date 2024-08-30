@@ -54,58 +54,66 @@ function Stage1:mech1()
             local bullet1 = BossBullet {
                 boss = self.boss,
                 degree = 0,
-                radius = 5,
+                radius = 11,
                 damage = 1,
-                speed = 40
+                speed = 40,
+                animations = ATTACK_DEFS['ball'].animations
             }
             local bullet2 = BossBullet {
                 boss = self.boss,
                 degree = 45,
-                radius = 5,
+                radius = 11,
                 damage = 1,
-                speed = 40
+                speed = 40,
+                animations = ATTACK_DEFS['ball'].animations
             }
             local bullet3 = BossBullet {
                 boss = self.boss,
                 degree = 90,
-                radius = 5,
+                radius = 11,
                 damage = 1,
-                speed = 40
+                speed = 40,
+                animations = ATTACK_DEFS['ball'].animations
             }
             local bullet4 = BossBullet {
                 boss = self.boss,
                 degree = 135,
-                radius = 5,
+                radius = 11,
                 damage = 1,
-                speed = 40
+                speed = 40,
+                animations = ATTACK_DEFS['ball'].animations
             }
             local bullet5 = BossBullet {
                 boss = self.boss,
                 degree = 180,
-                radius = 5,
+                radius = 11,
                 damage = 1,
-                speed = 40
+                speed = 40,
+                animations = ATTACK_DEFS['ball'].animations
             }
             local bullet6 = BossBullet {
                 boss = self.boss,
                 degree = -45,
-                radius = 5,
+                radius = 11,
                 damage = 1,
-                speed = 40
+                speed = 40,
+                animations = ATTACK_DEFS['ball'].animations
             }
             local bullet7 = BossBullet {
                 boss = self.boss,
                 degree = -90,
-                radius = 5,
+                radius = 11,
                 damage = 1,
-                speed = 40
+                speed = 40,
+                animations = ATTACK_DEFS['ball'].animations
             }
             local bullet8 = BossBullet {
                 boss = self.boss,
                 degree = -135,
-                radius = 5,
+                radius = 11,
                 damage = 1,
-                speed = 40
+                speed = 40,
+                animations = ATTACK_DEFS['ball'].animations
             }
 
             self.boss:addBullet(bullet1)
@@ -143,12 +151,20 @@ function Stage1:mech2()
     end
     if self.mech2counter == 1 then
         self.mech2counter = self.mech2counter + 1
+        
+        local r1 = math.random(1,3) .. 'r'
+        local r2 = math.random(1,3) .. 'l'
+        local r3 = math.random(1,3) .. 'r'
+        local r4 = math.random(1,3) .. 'l'
+        local r5 = math.random(1,3) .. 'r'
+
+
         Timer.after(t[1], function()
             local aoe1 = AOEBoxKnockback {
 
                 -- coordinates
-                x = 0,
-                y = 0,
+                x = -1,
+                y = -1,
 
                 xlength = VIRTUAL_WIDTH,     
                 ylength = VIRTUAL_HEIGHT / 5,
@@ -157,8 +173,14 @@ function Stage1:mech2()
                 player = self.player,
 
                 degree = -90,         -- direction for knockback
-                duration = .7         -- effect duration 
+                duration = .7,         -- effect duration 
 
+                bonusanim = ATTACK_DEFS['car'].animations,
+                animname = r1,
+                baxstart = VIRTUAL_WIDTH,
+                baystart = VIRTUAL_HEIGHT / 10 - 20,
+                baxend = -125,
+                bayend = VIRTUAL_HEIGHT / 10 -20
             }
             self.stage:addAOE(aoe1)
         end)
@@ -166,7 +188,7 @@ function Stage1:mech2()
             local aoe1 = AOEBoxKnockback {
 
                 -- coordinates
-                x = 0,
+                x = -1,
                 y = VIRTUAL_HEIGHT / 5,
 
                 xlength = VIRTUAL_WIDTH,
@@ -177,8 +199,14 @@ function Stage1:mech2()
                 player = self.player,
 
                 degree = 90,          -- direction for knockback
-                duration = .7         -- effect duration 
+                duration = .7,         -- effect duration 
 
+                bonusanim = ATTACK_DEFS['car'].animations,
+                animname = r2,
+                baxstart = -125,
+                baystart = VIRTUAL_HEIGHT / 5 + VIRTUAL_HEIGHT / 10 - 20,
+                baxend = VIRTUAL_WIDTH,
+                bayend = VIRTUAL_HEIGHT / 5 + VIRTUAL_HEIGHT / 10 -20
             }
             self.stage:addAOE(aoe1)
         end)
@@ -186,7 +214,7 @@ function Stage1:mech2()
             local aoe1 = AOEBoxKnockback {
 
                 -- coordinates
-                x = 0,
+                x = -1,
                 y = VIRTUAL_HEIGHT / 5 * 2,
 
                 xlength = VIRTUAL_WIDTH,
@@ -196,8 +224,14 @@ function Stage1:mech2()
                 snaptime = 1.5,               -- time telegraph will show/when the snapshot occurs
                 player = self.player,
                 degree = -90,         -- direction for knockback
-                duration = .7         -- effect duration 
+                duration = .7,         -- effect duration 
 
+                bonusanim = ATTACK_DEFS['car'].animations,
+                animname = r3,
+                baxstart = VIRTUAL_WIDTH,
+                baystart = VIRTUAL_HEIGHT / 5 * 2 + VIRTUAL_HEIGHT / 10 -20,
+                baxend = -125,
+                bayend = VIRTUAL_HEIGHT / 5 * 2 + VIRTUAL_HEIGHT / 10 -20
             }
             self.stage:addAOE(aoe1)
         end)
@@ -205,7 +239,7 @@ function Stage1:mech2()
             local aoe1 = AOEBoxKnockback {
 
                 -- coordinates
-                x = 0,
+                x = -1,
                 y = VIRTUAL_HEIGHT / 5 * 3,
 
                 xlength = VIRTUAL_WIDTH,
@@ -215,7 +249,14 @@ function Stage1:mech2()
                 snaptime = 1.5,               -- time telegraph will show/when the snapshot occurs
                 player = self.player,
                 degree = 90,          -- direction for knockback
-                duration = .7         -- effect duration 
+                duration = .7,         -- effect duration 
+
+                bonusanim = ATTACK_DEFS['car'].animations,
+                animname = r4,
+                baxstart = -125,
+                baystart = VIRTUAL_HEIGHT / 5 * 3 + VIRTUAL_HEIGHT / 10 -20,
+                baxend = VIRTUAL_WIDTH,
+                bayend = VIRTUAL_HEIGHT / 5 * 3 + VIRTUAL_HEIGHT / 10 -20
 
             }
             self.stage:addAOE(aoe1)
@@ -224,7 +265,7 @@ function Stage1:mech2()
             local aoe1 = AOEBoxKnockback {
 
                 -- coordinates
-                x = 0,
+                x = -1,
                 y = VIRTUAL_HEIGHT / 5 * 4,
 
                 xlength = VIRTUAL_WIDTH,
@@ -235,7 +276,14 @@ function Stage1:mech2()
                 player = self.player,
 
                 degree = -90,         -- direction for knockback
-                duration = .7         -- effect duration 
+                duration = .7,         -- effect duration 
+
+                bonusanim = ATTACK_DEFS['car'].animations,
+                animname = r5,
+                baxstart = VIRTUAL_WIDTH,
+                baystart = VIRTUAL_HEIGHT / 5 * 4 + VIRTUAL_HEIGHT / 10 -20,
+                baxend = -125,
+                bayend = VIRTUAL_HEIGHT / 5 * 4 + VIRTUAL_HEIGHT / 10 -20
 
             }
             self.stage:addAOE(aoe1)

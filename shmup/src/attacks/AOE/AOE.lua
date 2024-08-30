@@ -23,7 +23,9 @@ function AOE:init(def)
         if not self.done then
             self.snapshot = true
         end
+        Timer.after(5, function() --leeway to finish animations
         self.done = true
+        end)
     end)
     --for persistent AOE, use Timer.every. This will be implemented in a separate class, most likely.
 end

@@ -18,11 +18,25 @@ function BossBullet:init(def)
     --self.traveled = 0 --for projectiles with a limit
     self.speed = def.speed
     self.done = false --check for deletion
+
+    --self.animations = self:createAnimations(def.animations)
+    self.animations = {}
+
+    for k, animationDef in pairs(def.animations) do
+        self.animations[k] = Animation {
+            texture = animationDef.texture,
+            frames = animationDef.frames,
+            interval = animationDef.interval
+        }
+    end
+
+    self.currentAnimation = self.animations['default']
+
 end
 
 function BossBullet:collides(target)
-    local centerx = self.x + self.radius
-    local centery = self.y + self.radius
+    local centerx = self.x 
+    local centery = self.y 
     if ((target.hitx - centerx) ^ 2 + (target.hity - centery) ^ 2) ^ (1 / 2) < self.radius then
         target.health = target.health - self.damage
         self.done = true
@@ -47,9 +61,21 @@ function BossBullet:update(dt)
         (self.y >= VIRTUAL_HEIGHT) then
         self.done = true
     end
+
+    if self.currentAnimation then
+        self.currentAnimation:update(dt)
+    end
 end
 
 function BossBullet:render() --(adjacentOffsetX,adjacentOffsetY)
-    love.graphics.setColor(100, 0, 0, 225)
-    love.graphics.circle("fill", self.x + self.radius, self.y + self.radius, self.radius)
+
+    --This is for debug/visualization purposes. Uncomment if needed. 
+--[[      love.graphics.setColor(100, 0, 0, 225)
+    love.graphics.circle("fill", self.x , self.y , self.radius)  ]]
+
+    love.graphics.setColor(255, 255, 255) --reset to white
+    local anim = self.animations['default']
+    love.graphics.draw(gTextures[anim.texture], gFrames[anim.texture][anim:getCurrentFrame()], self.x-self.radius,
+        self.y-self.radius,
+        0, 1, 1, 1, 1) 
 end

@@ -56,5 +56,5 @@ function PlayerKnockbackState:render()
 
     love.graphics.draw(gTextures[anim.texture], gFrames[anim.texture][anim:getCurrentFrame()], self.player.x,
         self.player.y,
-        0, .1, .1, 1, 1)
+        0, 1, 1, 1, 1)
 end
