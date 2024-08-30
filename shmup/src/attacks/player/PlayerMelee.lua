@@ -11,7 +11,7 @@ function PlayerMelee:init(player)
 
 
 
-    self.radius = 20
+    self.radius = 40
 
 
     self.damage = 1

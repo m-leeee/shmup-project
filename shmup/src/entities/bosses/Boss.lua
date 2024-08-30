@@ -42,7 +42,7 @@ function Boss:render()
     love.graphics.setColor(1, 1, 1, 1) --(34/255, 34/255, 34/255, 1)
     local hptruncate = math.floor(self.hppercent * 1000)/10
     if hptruncate > 0 then
-        love.graphics.printf(hptruncate .. '%', self.x, self.y - 10, 100, 'left')
+        love.graphics.printf(hptruncate .. '%', self.x, self.y - 15, 100, 'left')
     end
 
     for k, bullet in pairs(self.bullets) do

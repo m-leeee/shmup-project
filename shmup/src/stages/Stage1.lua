@@ -12,10 +12,10 @@ function Stage1:init(def)
         animations = ENTITY_DEFS['shiba'].animations,
         x = VIRTUAL_WIDTH / 2 - 8,
         y = VIRTUAL_HEIGHT / 2 - 11,
-        width = 30,  -- 256,
-        height = 30, -- 256,
-        hboxw = 12,
-        hboxh = 12,
+        width = 50,  -- 256,
+        height = 44, -- 256,
+        hboxw = 50,
+        hboxh = 44,
         health = 60,
         maxhealth = 60,
         -- rendering and collision offset for spaced sprites
@@ -48,12 +48,17 @@ function Stage1:mech1()
     -- TENNIS BALL BARRAGE
     self.boss:recenterMove()
     local t = 1
+    local offset = 0
+    if math.random(1,2) == 2 then
+        offset = 22.5
+    end
+
     if self.mech1counter == 1 then
         self.mech1counter = self.mech1counter + 1
         Timer.after(t, function()
             local bullet1 = BossBullet {
                 boss = self.boss,
-                degree = 0,
+                degree = 0+offset,
                 radius = 11,
                 damage = 1,
                 speed = 40,
@@ -61,7 +66,7 @@ function Stage1:mech1()
             }
             local bullet2 = BossBullet {
                 boss = self.boss,
-                degree = 45,
+                degree = 45+offset,
                 radius = 11,
                 damage = 1,
                 speed = 40,
@@ -69,7 +74,7 @@ function Stage1:mech1()
             }
             local bullet3 = BossBullet {
                 boss = self.boss,
-                degree = 90,
+                degree = 90+offset,
                 radius = 11,
                 damage = 1,
                 speed = 40,
@@ -77,7 +82,7 @@ function Stage1:mech1()
             }
             local bullet4 = BossBullet {
                 boss = self.boss,
-                degree = 135,
+                degree = 135+offset,
                 radius = 11,
                 damage = 1,
                 speed = 40,
@@ -85,7 +90,7 @@ function Stage1:mech1()
             }
             local bullet5 = BossBullet {
                 boss = self.boss,
-                degree = 180,
+                degree = 180+offset,
                 radius = 11,
                 damage = 1,
                 speed = 40,
@@ -93,7 +98,7 @@ function Stage1:mech1()
             }
             local bullet6 = BossBullet {
                 boss = self.boss,
-                degree = -45,
+                degree = -45+offset,
                 radius = 11,
                 damage = 1,
                 speed = 40,
@@ -101,7 +106,7 @@ function Stage1:mech1()
             }
             local bullet7 = BossBullet {
                 boss = self.boss,
-                degree = -90,
+                degree = -90+offset,
                 radius = 11,
                 damage = 1,
                 speed = 40,
@@ -109,7 +114,7 @@ function Stage1:mech1()
             }
             local bullet8 = BossBullet {
                 boss = self.boss,
-                degree = -135,
+                degree = -135+offset,
                 radius = 11,
                 damage = 1,
                 speed = 40,
@@ -306,7 +311,7 @@ function Stage1:mech3()
                 x = self.player.hitx,
                 y = self.player.hity,
 
-                radius = 20,
+                radius = 45,
 
                 damage = 3,   -- how much damage this AOE will inflict
                 snaptime = 1, -- time telegraph will show/when the snapshot occurs
@@ -324,7 +329,7 @@ function Stage1:mech3()
                 x = self.player.hitx,
                 y = self.player.hity,
 
-                radius = 20,
+                radius = 45,
 
                 damage = 3,   -- how much damage this AOE will inflict
                 snaptime = 1, -- time telegraph will show/when the snapshot occurs
@@ -346,7 +351,7 @@ function Stage1:mech3()
                 x = xx,
                 y = yy,
 
-                radius = 20,
+                radius = 45,
 
                 damage = 3,   -- how much damage this AOE will inflict
                 snaptime = 1, -- time telegraph will show/when the snapshot occurs
@@ -363,8 +368,8 @@ function Stage1:mech3()
                 x = xx,
                 y = yy,
 
-                radius = 130,
-                inradius = 19.5,
+                radius = 270,
+                inradius = 38,
 
                 damage = 3,      -- how much damage this AOE will inflict
                 snaptime = 1,    -- time telegraph will show/when the snapshot occurs

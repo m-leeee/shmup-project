@@ -6,7 +6,7 @@ Shiba = Class { __includes = Boss }
 
 function Shiba:init(def)
         Boss.init(self, def)
-        self.hitradius = 15
+        self.hitradius = 23
         self.movementactive = false
 end
 

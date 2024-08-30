@@ -14,7 +14,7 @@ function PlayerKnockbackState:init(player)
     self.duration = 0  --how many seconds to KB for
 
 
-    self.speed = 300
+    self.speed = 450
     -- render offset for spaced character sprite; negated in render function of state
     self.player.offsetY = 5
     self.player.offsetX = 0

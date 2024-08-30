@@ -1,6 +1,6 @@
 ENTITY_DEFS = {
     ['player'] = {
-        walkSpeed = 60,
+        walkSpeed = 120,
         animations = {
             ['idle'] = {
                 frames = { 1 },

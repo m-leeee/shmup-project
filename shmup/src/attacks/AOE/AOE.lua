@@ -38,6 +38,7 @@ end
 function AOE:update(dt)
     if self.snapshot then
         self:hits(self.player)
+        self.snapshot = false
     end
 end
 
