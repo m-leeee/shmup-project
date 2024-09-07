@@ -35,6 +35,7 @@ require 'src/attacks/AOE/AOEDonut'
 require 'src/attacks/AOE/AOETriangle'
 
 require 'src/attacks/boss/BossBullet'
+require 'src/attacks/boss/HomingBBullet'
 
 require 'src/attacks/player/PlayerBullet'
 require 'src/attacks/player/PlayerMelee'

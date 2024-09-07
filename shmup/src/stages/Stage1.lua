@@ -46,7 +46,6 @@ end
 
 function Stage1:mech1()
     -- TENNIS BALL BARRAGE
-    self.boss:recenterMove()
     local t = 1
     local offset = 0
     if math.random(1,2) == 2 then
@@ -144,15 +143,15 @@ function Stage1:mech2()
     local r = math.random(1, 5)
     local t
     if r == 1 then
-        t = { .5, 1, .5, .5, 1 }
+        t = { .5, 1.3, .5, .5, 1.3 }
     elseif r == 2 then
-        t = { 1, .5, 1, .5, .5 }
+        t = { 1.3, .5, 1.3, .5, .5 }
     elseif r == 3 then
-        t = { 1, .5, 1, 1, .5 }
+        t = { 1.3, .5, 1.3, 1.3, .5 }
     elseif r == 4 then
-        t = { .5, 1, .5, 1, .5 }
+        t = { .5, 1.3, .5, 1.3, .5 }
     elseif r == 5 then
-        t = { .5, .5, 1, 1, .5 }
+        t = { .5, .5, 1.3, 1.3, .5 }
     end
     if self.mech2counter == 1 then
         self.mech2counter = self.mech2counter + 1
@@ -172,7 +171,7 @@ function Stage1:mech2()
                 y = -1,
 
                 xlength = VIRTUAL_WIDTH,     
-                ylength = VIRTUAL_HEIGHT / 5,
+                ylength = VIRTUAL_HEIGHT / 5 + 1,
                 damage = 5,                   -- how much damage this AOE will inflict
                 snaptime = 1.5,               -- time telegraph will show/when the snapshot occurs
                 player = self.player,
@@ -301,9 +300,22 @@ end
 
 function Stage1:mech3()
     -- FRISBEE BOMB TOSS
-    self.boss:recenterMove()
     local t = 1.3
     if self.mech3counter == 1 then
+        
+        local bullet1 = HomingBBullet {
+            boss = self.boss,
+            radius = 11,
+            damage = 1,
+            speed = 150,
+            animations = ATTACK_DEFS['ball'].animations,
+            player = self.player,
+            tracktimer = t,
+            behavior = 'lockon',
+            locktime = 1
+        }
+        self.boss:addBullet(bullet1)
+        
         Timer.after(t, function()
             local aoe1 = AOECircle {
 
@@ -319,9 +331,25 @@ function Stage1:mech3()
 
             }
             self.stage:addAOE(aoe1)
+
+            local bullet2 = HomingBBullet {
+                boss = self.boss,
+                radius = 11,
+                damage = 1,
+                speed = 150,
+                animations = ATTACK_DEFS['ball'].animations,
+                player = self.player,
+                tracktimer = t,
+                behavior = 'lockon',
+                locktime = 1
+            }
+            self.boss:addBullet(bullet2)
+
+
         end)
         self.mech3counter = self.mech3counter + 1
     elseif self.mech3counter == 2 then
+
         Timer.after(t * 2, function()
             local aoe1 = AOECircle {
 
@@ -337,9 +365,24 @@ function Stage1:mech3()
 
             }
             self.stage:addAOE(aoe1)
+
+            local bullet3 = HomingBBullet {
+                boss = self.boss,
+                radius = 11,
+                damage = 1,
+                speed = 150,
+                animations = ATTACK_DEFS['ball'].animations,
+                player = self.player,
+                tracktimer = t,
+                behavior = 'lockon',
+                locktime = 1
+            }
+            self.boss:addBullet(bullet3)
+
         end)
         self.mech3counter = self.mech3counter + 1
     elseif self.mech3counter == 3 then
+
         local xx = self.player.hitx
         local yy = self.player.hity
         Timer.after(t * 3, function()
@@ -386,7 +429,6 @@ end
 
 function Stage1:mech4()
     -- SANDSTORM
-    self.boss:recenterMove()
     local t = 1
     if self.mech4counter == 1 then
         self.mech4counter = self.mech4counter + 1
@@ -501,6 +543,7 @@ function Stage1:update(dt)
     end
 
     if self.boss.phase == 1 then     -- TENNIS BALLS BARRAGE
+        self.boss:recenterMove()
         self:mech1()
     elseif self.boss.phase == 2 then -- TRAFFIC
         if self.mechdelaycount == 1 then
@@ -512,6 +555,7 @@ function Stage1:update(dt)
             self:mech2()
         end
     elseif self.boss.phase == 3 then -- BOMB TOSS
+        self.boss:recenterMove()
         if self.mechdelaycount == 2 then
             Timer.after(2, function() 
                 self:mech3()

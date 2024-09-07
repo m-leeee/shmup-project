@@ -9,6 +9,7 @@ function AOEBoxKnockback:init(def)
     self.degree = def.degree     --direction for knockback
     self.duration = def.duration -- effect duration if applicable
     
+    --this is for animations that play after the aoe has snapshotted the damage 
     self.bonusanim = {} --to slide this across the screen
     for k, animationDef in pairs(def.bonusanim) do
         self.bonusanim[k] = Animation {
@@ -18,7 +19,7 @@ function AOEBoxKnockback:init(def)
         }
     end
 
-    self.bonusanimstart = false
+    self.bonusanimstart = false 
     Timer.after(self.snaptime, function()
         if not self.done then
             self.bonusanimstart = true

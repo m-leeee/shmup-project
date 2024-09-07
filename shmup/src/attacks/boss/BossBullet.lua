@@ -53,7 +53,6 @@ function BossBullet:update(dt)
     self.y = self.y + math.cos(rad) * self.speed * dt
     self.x = self.x + math.sin(rad) * self.speed * dt
 
-    --self.traveled = self.traveled + dt --for projectiles with a limit. this may or may not be implemented later.
 
     if (self.x + self.width <= 0) or
         (self.x >= VIRTUAL_WIDTH) or
