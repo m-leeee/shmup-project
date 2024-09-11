@@ -565,6 +565,7 @@ function Stage1:update(dt)
             self:mech3()
         end
     elseif self.boss.phase == 4 then -- DUSTSTORM
+        self.boss:recenterMove()
         if self.mechdelaycount == 3 then
             Timer.after(2, function() 
                 self:mech4()
@@ -574,6 +575,7 @@ function Stage1:update(dt)
             self:mech4()
         end
     elseif self.boss.phase == 5 then -- TENNIS BALLS & BOMB TOSS
+        self.boss:recenterMove()
         if self.mechdelaycount == 4 then
             Timer.after(2, function() 
                 self:mech1()
@@ -585,6 +587,7 @@ function Stage1:update(dt)
             self:mech3()
         end
     elseif self.boss.phase == 6 then -- TENNIS BALLS & DUSTSTORM
+        self.boss:recenterMove()
         if self.mechdelaycount == 5 then
             Timer.after(2, function() 
                 self:mech1()
@@ -596,6 +599,7 @@ function Stage1:update(dt)
             self:mech4()
         end
     elseif self.boss.phase == 7 then -- BOMB TOSS & DUSTSTORM
+        self.boss:recenterMove()
         if self.mechdelaycount == 6 then
             Timer.after(2, function() 
                 self:mech3()
