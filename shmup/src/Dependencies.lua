@@ -45,17 +45,19 @@ require 'src/attacks/player/PlayerMelee'
 gTextures = {
     ['player'] = love.graphics.newImage('graphics/player.png'),
     ['shiba'] = love.graphics.newImage('graphics/shib.png'),
-    ['bomb'] = love.graphics.newImage('graphics/bomb1.png'),
     ['car'] = love.graphics.newImage('graphics/carsheet.png'),
-    ['ball'] = love.graphics.newImage('graphics/ballsheet.png')
+    ['ball'] = love.graphics.newImage('graphics/ballsheet.png'),
+    ['bomb'] = love.graphics.newImage('graphics/bombsheet.png'),
+    ['frisbee'] = love.graphics.newImage('graphics/frisbeesheet.png')
 }
 
 gFrames = {
     ['player'] = GenerateQuads(gTextures['player'], 26, 41),
     ['shiba'] = GenerateQuads(gTextures['shiba'], 50, 45),
-    ['bomb'] = GenerateQuads(gTextures['bomb'], 32, 32),
     ['car'] = GenerateQuads(gTextures['car'], 125, 39),
-    ['ball'] = GenerateQuads(gTextures['ball'], 24, 24)
+    ['ball'] = GenerateQuads(gTextures['ball'], 24, 24),
+    ['bomb'] = GenerateQuads(gTextures['bomb'], 25, 31),
+    ['frisbee'] = GenerateQuads(gTextures['frisbee'], 25, 13)
 }
 
 gFonts = {

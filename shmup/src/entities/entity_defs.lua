@@ -64,6 +64,26 @@ ATTACK_DEFS = {
 
             }
         }
+    },
+    ['bomb'] = {
+        animations = {
+            ['default'] = {
+                frames = { 1, 2, 3 },
+                interval = 0.1,
+                texture = 'bomb'
+
+            }
+        }
+    },
+    ['frisbee'] = {
+        animations = {
+            ['default'] = {
+                frames = { 1, 2},
+                interval = 0.2,
+                texture = 'frisbee'
+
+            }
+        }
     }
 
 }
