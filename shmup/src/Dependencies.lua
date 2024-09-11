@@ -48,7 +48,8 @@ gTextures = {
     ['car'] = love.graphics.newImage('graphics/carsheet.png'),
     ['ball'] = love.graphics.newImage('graphics/ballsheet.png'),
     ['bomb'] = love.graphics.newImage('graphics/bombsheet.png'),
-    ['frisbee'] = love.graphics.newImage('graphics/frisbeesheet.png')
+    ['frisbee'] = love.graphics.newImage('graphics/frisbeesheet.png'),
+    ['s1bg'] = love.graphics.newImage('graphics/stage1bg.png')
 }
 
 gFrames = {

@@ -614,5 +614,8 @@ function Stage1:update(dt)
 end
 
 function Stage1:render()
+    love.graphics.draw(gTextures['s1bg'], 0, 0, 0,         
+    VIRTUAL_WIDTH / gTextures['s1bg']:getWidth(),
+    VIRTUAL_HEIGHT / gTextures['s1bg']:getHeight())
     self.stage:render()
 end
