@@ -34,20 +34,26 @@ function AOEDonut:update(dt)
     AOE.update(self, dt)
 end
 
+
 function AOEDonut:render()
     --render a warning telegraph (mechanical indicator standard), then the actual AOE (visual flair w sfx when i have assets)
     --damage should snapshot the moment the telegraph disappears
     if self.teleactive then
-        love.graphics.setColor(255, 100, 0, 200)
-
-        --Will have visual bugs with overlapping AOEs but should be fixed with assets that have transparencies later
-        love.graphics.circle("fill", self.x, self.y, self.radius)
-        love.graphics.setColor(0, 0, 0, 225)
-        love.graphics.circle("fill", self.x, self.y, self.inradius)
 
         love.graphics.setColor(255, 0, 0, 200)
         love.graphics.circle("line", self.x, self.y, self.radius)
         love.graphics.setColor(255, 0, 0, 225)
         love.graphics.circle("line", self.x, self.y, self.inradius)
+        
+        love.graphics.stencil(function()
+            love.graphics.circle("fill", self.x, self.y, self.inradius)
+        end, 'replace', 1)
+        
+        love.graphics.setStencilTest("equal", 0)
+        love.graphics.setColor(255, 100, 0, .6)
+        love.graphics.circle("fill", self.x, self.y, self.radius)
+        love.graphics.setStencilTest()
+    
+
     end
 end

@@ -43,7 +43,7 @@ function AOETriangle:render()
     --render a warning telegraph (mechanical indicator standard), then the actual AOE (visual flair w sfx when i have assets)
     --damage should snapshot the moment the telegraph disappears
     if self.teleactive then
-        love.graphics.setColor(255, 100, 0, 200)
+        love.graphics.setColor(255, 100, 0, .6)
 
         love.graphics.polygon("fill", self.x, self.y, self.x2, self.y2, self.x3, self.y3)
 

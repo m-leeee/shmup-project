@@ -33,7 +33,7 @@ function AOEBox:render()
     --render a warning telegraph (mechanical indicator standard), then the actual AOE (visual flair w sfx when i have assets)
     --damage should snapshot the moment the telegraph disappears
     if self.teleactive then
-        love.graphics.setColor(255, 100, 0, 200)
+        love.graphics.setColor(255, 100, 0, .6)
         love.graphics.rectangle("fill", self.x, self.y, self.xlength, self.ylength)
 
         love.graphics.setColor(255, 0, 0, 200)
