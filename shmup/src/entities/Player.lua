@@ -8,7 +8,7 @@ function Player:init(def)
     Entity.init(self, def)
     self.gcdspeed = 1.5
     self.gcdrolled = false
-
+    self.gcdangle = 270
     self.bullets = {}
     self.knockbacktracker = {}
     self.melee = PlayerMelee(self)
@@ -50,5 +50,11 @@ function Player:render()
     for k, bullet in pairs(self.bullets) do
         bullet:render()
     end
+
+    --gcdroll 
+    love.graphics.setColor(255, 0, 255, .7)
+    love.graphics.arc( "fill", self.hitx+20, self.hity+20, 15, math.rad(270),math.rad(self.gcdangle))
+
+
 
 end

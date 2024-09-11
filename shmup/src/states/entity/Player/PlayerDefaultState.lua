@@ -51,7 +51,13 @@ function PlayerDefaultState:update(dt)
             self.entity.gcdrolled = true -- caps the number of attack actions you can send
             Timer.after(self.entity.gcdspeed, function()
                 self.entity.gcdrolled = false
+                self.entity.gcdangle = 270
             end)
+
+            Timer.tween(self.entity.gcdspeed-.05, { [self.entity] = {gcdangle = 630}}) --slight offset to prevent graphical glitches
+            
+
+
         end
     end
     if love.keyboard.isDown('w') then
@@ -61,7 +67,10 @@ function PlayerDefaultState:update(dt)
             self.entity.gcdrolled = true -- caps the number of attack actions you can send
             Timer.after(self.entity.gcdspeed, function()
                 self.entity.gcdrolled = false
+                self.entity.gcdangle = 270
             end)
+
+            Timer.tween(self.entity.gcdspeed-.05, { [self.entity] = {gcdangle = 630}})
         end
     end
 end
