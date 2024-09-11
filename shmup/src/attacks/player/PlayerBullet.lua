@@ -29,6 +29,7 @@ function PlayerBullet:collides(target)
         local centery = self.y
         if ((target.hitx - centerx) ^ 2 + (target.hity - centery) ^ 2) ^ (1 / 2) < self.radius+ target.hitradius then
             target.health = target.health - self.damage
+            gSounds['pop']:play()
             return true
         end
         --Collision logic gets checked in Stage 

@@ -65,3 +65,7 @@ gFonts = {
     ['medium'] = love.graphics.newFont('fonts/font.ttf', 16),
     ['large'] = love.graphics.newFont('fonts/font.ttf', 32)
 }
+
+gSounds = {
+    ['pop'] = love.audio.newSource('sounds/pop.wav', 'static')
+}
