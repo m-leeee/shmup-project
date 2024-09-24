@@ -33,6 +33,7 @@ function Player:update(dt)
     self.melee.y = self.hity
 
     if self.health < self.lasthp then
+        gSounds['hit']:stop()
         gSounds['hit']:play()
     end
     self.lasthp = self.health

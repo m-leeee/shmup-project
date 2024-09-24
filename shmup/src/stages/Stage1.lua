@@ -170,7 +170,7 @@ function Stage1:mech2()
                 x = -1,
                 y = -1,
 
-                xlength = VIRTUAL_WIDTH,     
+                xlength = VIRTUAL_WIDTH+2,     
                 ylength = VIRTUAL_HEIGHT / 5 + 1,
                 damage = 5,                   -- how much damage this AOE will inflict
                 snaptime = 1.5,               -- time telegraph will show/when the snapshot occurs
@@ -195,7 +195,7 @@ function Stage1:mech2()
                 x = -1,
                 y = VIRTUAL_HEIGHT / 5,
 
-                xlength = VIRTUAL_WIDTH,
+                xlength = VIRTUAL_WIDTH+2,
                 ylength = VIRTUAL_HEIGHT / 5,
 
                 damage = 5,                   -- how much damage this AOE will inflict
@@ -221,7 +221,7 @@ function Stage1:mech2()
                 x = -1,
                 y = VIRTUAL_HEIGHT / 5 * 2,
 
-                xlength = VIRTUAL_WIDTH,
+                xlength = VIRTUAL_WIDTH+2,
                 ylength = VIRTUAL_HEIGHT / 5,
 
                 damage = 5,                   -- how much damage this AOE will inflict
@@ -246,7 +246,7 @@ function Stage1:mech2()
                 x = -1,
                 y = VIRTUAL_HEIGHT / 5 * 3,
 
-                xlength = VIRTUAL_WIDTH,
+                xlength = VIRTUAL_WIDTH+2,
                 ylength = VIRTUAL_HEIGHT / 5,
 
                 damage = 5,                   -- how much damage this AOE will inflict
@@ -272,7 +272,7 @@ function Stage1:mech2()
                 x = -1,
                 y = VIRTUAL_HEIGHT / 5 * 4,
 
-                xlength = VIRTUAL_WIDTH,
+                xlength = VIRTUAL_WIDTH+2,
                 ylength = VIRTUAL_HEIGHT / 5,
 
                 damage = 5,                   -- how much damage this AOE will inflict
