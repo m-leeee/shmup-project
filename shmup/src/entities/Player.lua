@@ -12,6 +12,7 @@ function Player:init(def)
     self.bullets = {}
     self.knockbacktracker = {}
     self.melee = PlayerMelee(self)
+    self.lasthp = self.health
 end
 
 function Player:update(dt)
@@ -30,6 +31,11 @@ function Player:update(dt)
     self.melee:update(dt)
     self.melee.x = self.hitx
     self.melee.y = self.hity
+
+    if self.health < self.lasthp then
+        gSounds['hit']:play()
+    end
+    self.lasthp = self.health
 end
 
 function Player:collides(target)

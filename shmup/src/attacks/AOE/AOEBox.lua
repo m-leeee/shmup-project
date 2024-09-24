@@ -17,7 +17,6 @@ function AOEBox:hits(target)
         --compare hitbox to corners of box
         if (self.x < target.hitx) and (self.x + self.xlength > target.hitx) and (self.y < target.hity) and (self.y + self.ylength > target.hity) then
             target.health = target.health - self.damage
-            gSounds['hit']:play()
             self.snapshot = false
             return true --check lowerxlimit < x < upperxlimit and lowerylimit< y < upperylimit
         end

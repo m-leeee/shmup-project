@@ -18,7 +18,6 @@ function AOECircle:hits(target)
         local centery = self.y
         if ((target.hitx - centerx) ^ 2 + (target.hity - centery) ^ 2) ^ (1 / 2) < self.radius then
             target.health = target.health - self.damage
-            gSounds['hit']:play()
             self.snapshot = false
             return true --if radius < distance, then true
         end

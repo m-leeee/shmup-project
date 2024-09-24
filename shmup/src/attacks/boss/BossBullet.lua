@@ -40,7 +40,6 @@ function BossBullet:collides(target)
     if ((target.hitx - centerx) ^ 2 + (target.hity - centery) ^ 2) ^ (1 / 2) < self.radius then
         target.health = target.health - self.damage
         self.done = true
-        gSounds['hit']:play()
         return true --if radius < distance, then true
     end
 
