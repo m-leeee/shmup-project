@@ -23,6 +23,7 @@ function AOEDonut:hits(target)
         if ((target.hitx - centerx) ^ 2 + (target.hity - centery) ^ 2) ^ (1 / 2) < self.radius then
             target.health = target.health - self.damage
             self.snapshot = false
+            gSounds['hit']:play()
             return true -- ir radius < distance, then true
         end
     end

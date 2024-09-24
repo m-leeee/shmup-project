@@ -28,6 +28,7 @@ function AOETriangle:hits(target)
         if math.abs(tri0) >= math.abs(tri1) + math.abs(tri2) + math.abs(tri3) then
             target.health = target.health - self.damage
             self.snapshot = false
+            gSounds['hit']:play()
             return true
         end
     end

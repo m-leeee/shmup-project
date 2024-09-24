@@ -68,5 +68,6 @@ gFonts = {
 }
 
 gSounds = {
-    ['pop'] = love.audio.newSource('sounds/pop.wav', 'static')
+    ['pop'] = love.audio.newSource('sounds/pop.wav', 'static'),
+    ['hit'] = love.audio.newSource('sounds/hit.wav', 'static')
 }
