@@ -31,16 +31,21 @@ function Entity:init(def)
     self.hppercent = self.health / self.maxhealth
 
     -- flags for flashing the entity when hit
+    --TODO: Delete me later, likely will not be used
     self.invulnerable = false
     self.invulnerableDuration = 0
     self.invulnerableTimer = 0
 
     -- timer for turning transparency on and off, flashing
     self.flashTimer = 0
+    self.flashing = false --
 
     self.dead = false
     self.drops = false
     self.currentAnimName = 'name'
+
+    self.flashing = false
+    self.flashtime = 0
 end
 
 function Entity:createAnimations(animations)
@@ -111,6 +116,10 @@ function Entity:update(dt)
     if self.health < 0 then
         self.dead = true
     end
+
+    if self.flashing then
+        self.flashtime = self.flashtime + dt
+    end
 end
 
 function Entity:processAI(params, dt)
@@ -119,13 +128,33 @@ end
 
 function Entity:render(adjacentOffsetX, adjacentOffsetY)
     -- draw sprite slightly transparent if invulnerable every 0.04 seconds
+    --TODO: will delete this later if its unnecessary
     if self.invulnerable and self.flashTimer > 0.06 then
         self.flashTimer = 0
         love.graphics.setColor(1, 1, 1, 64 / 255)
     end
 
+    if self.flashing then
+        if self.flashtime < .06 then 
+            love.graphics.setColor(1, 1, 1, 124 / 255)
+        elseif self.flashtime < .12 then 
+            love.graphics.setColor(255, 255, 255)
+        elseif self.flashtime < .18 then 
+            love.graphics.setColor(1, 1, 1, 124 / 255)
+        elseif self.flashtime < .24 then
+            love.graphics.setColor(255, 255, 255)
+        elseif self.flashtime < .30 then
+            love.graphics.setColor(1, 1, 1, 124 / 255)
+        else
+            love.graphics.setColor(255, 255, 255)
+            self.flashtime = 0
+            self.flashing = false
+        end
+
+    end
+
+
     self.x, self.y = self.x + (adjacentOffsetX or 0), self.y + (adjacentOffsetY or 0)
-    love.graphics.setColor(255, 255, 255) --reset to white
     self.stateMachine:render()
     love.graphics.setColor(1, 1, 1, 1)
     self.x, self.y = self.x - (adjacentOffsetX or 0), self.y - (adjacentOffsetY or 0)

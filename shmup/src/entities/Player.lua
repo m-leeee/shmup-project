@@ -35,6 +35,7 @@ function Player:update(dt)
     if self.health < self.lasthp then
         gSounds['hit']:stop()
         gSounds['hit']:play()
+        self.flashing = true
     end
     self.lasthp = self.health
 end
