@@ -38,6 +38,9 @@ function Player:update(dt)
         self.flashing = true
     end
     self.lasthp = self.health
+    if self.dead then
+        self:changeState('dead')
+    end
 end
 
 function Player:collides(target)

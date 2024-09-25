@@ -22,6 +22,7 @@ require 'src/entities/bosses/Shiba'
 require 'src/states/entity/EntityIdleState'
 require 'src/states/entity/player/PlayerDefaultState'
 require 'src/states/entity/player/PlayerKnockbackState'
+require 'src/states/entity/player/PlayerDeadState'
 
 require 'src/stages/Stage'
 require 'src/stages/Sandbox'

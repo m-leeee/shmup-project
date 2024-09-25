@@ -17,8 +17,8 @@ function PlayState:init()
         hboxw = 13,
         hboxh = 13,
 
-        health = 6,
-        maxhealth = 7,
+        health = 10,
+        maxhealth = 10,
 
         -- rendering and collision offset for spaced sprites
         offsetY = 5
@@ -32,9 +32,11 @@ function PlayState:init()
 
     self.player.stateMachine = StateMachine {
         ['default'] = function() return PlayerDefaultState(self.player) end,
-        ['kb'] = function() return PlayerKnockbackState(self.player) end
+        ['kb'] = function() return PlayerKnockbackState(self.player) end,
+        ['dead'] = function() return PlayerDeadState(self.player) end,
     }
     self.player:changeState('default')
+    self.resetcheck = true
 end
 
 function PlayState:update(dt)
@@ -44,6 +46,13 @@ function PlayState:update(dt)
 
     self.player:update(dt)
     self.stage:update(dt)
+
+    if self.player.dead and self.resetcheck then
+        self.resetcheck = false
+        Timer.after(2, function() 
+            gStateMachine:change('game-over')
+        end)
+    end
 end
 
 function PlayState:render()
