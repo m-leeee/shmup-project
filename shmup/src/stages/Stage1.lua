@@ -42,6 +42,7 @@ function Stage1:init(def)
     self.mech4counter = 1
 
     self.mechdelaycount = 1 --checks whether to delay a mechanic start (for mechanic transitions)
+    self.mechanictimers = {}
 end
 
 function Stage1:mech1()
@@ -188,6 +189,7 @@ function Stage1:mech2()
             }
             self.stage:addAOE(aoe1)
         end)
+        :group(self.mechanictimers)
         Timer.after(t[2], function()
             local aoe1 = AOEBoxKnockback {
 
@@ -214,6 +216,7 @@ function Stage1:mech2()
             }
             self.stage:addAOE(aoe1)
         end)
+        :group(self.mechanictimers)
         Timer.after(t[3], function()
             local aoe1 = AOEBoxKnockback {
 
@@ -239,6 +242,7 @@ function Stage1:mech2()
             }
             self.stage:addAOE(aoe1)
         end)
+        :group(self.mechanictimers)
         Timer.after(t[4], function()
             local aoe1 = AOEBoxKnockback {
 
@@ -265,6 +269,7 @@ function Stage1:mech2()
             }
             self.stage:addAOE(aoe1)
         end)
+        :group(self.mechanictimers)
         Timer.after(t[5], function()
             local aoe1 = AOEBoxKnockback {
 
@@ -292,6 +297,7 @@ function Stage1:mech2()
             }
             self.stage:addAOE(aoe1)
         end)
+        :group(self.mechanictimers)
         Timer.after(2.6, function()
             self.mech2counter = 1
         end)
@@ -347,6 +353,7 @@ function Stage1:mech3()
 
 
         end)
+        :group(self.mechanictimers)
         self.mech3counter = self.mech3counter + 1
     elseif self.mech3counter == 2 then
 
@@ -380,6 +387,7 @@ function Stage1:mech3()
             self.boss:addBullet(bullet3)
 
         end)
+        :group(self.mechanictimers)
         self.mech3counter = self.mech3counter + 1
     elseif self.mech3counter == 3 then
 
@@ -403,6 +411,7 @@ function Stage1:mech3()
             }
             self.stage:addAOE(aoe1)
         end)
+        :group(self.mechanictimers)
         self.mech3counter = self.mech3counter + 1
         Timer.after((t * 3) + 1, function()
             local aoe2 = AOEDonut {
@@ -420,7 +429,7 @@ function Stage1:mech3()
             }
             self.stage:addAOE(aoe2)
         end)
-
+        :group(self.mechanictimers)
         Timer.after((t * 3) + 3, function()
             self.mech3counter = 1
         end)
@@ -451,6 +460,7 @@ function Stage1:mech4()
             }
             self.stage:addAOE(aoe1)
         end)
+        :group(self.mechanictimers)
     elseif self.mech4counter == 2 then
         self.mech4counter = self.mech4counter + 1
         Timer.after(t * 2, function()
@@ -472,6 +482,7 @@ function Stage1:mech4()
             }
             self.stage:addAOE(aoe1)
         end)
+        :group(self.mechanictimers)
     elseif self.mech4counter == 3 then
         self.mech4counter = self.mech4counter + 1
         Timer.after(t * 3, function()
@@ -493,6 +504,7 @@ function Stage1:mech4()
             }
             self.stage:addAOE(aoe1)
         end)
+        :group(self.mechanictimers)
     elseif self.mech4counter == 4 then
         self.mech4counter = self.mech4counter + 1
         Timer.after(t * 4, function()
@@ -518,12 +530,13 @@ function Stage1:mech4()
                 self.mech4counter = 1
             end)
         end)
+        :group(self.mechanictimers)
     end
 end
 
 function Stage1:update(dt)
     self.stage:update(dt)
-
+    Timer.update(dt,self.mechanictimers)
     if self.boss.hppercent > .9 then
         self.boss.phase = 1
     elseif self.boss.hppercent > .75 then
@@ -538,9 +551,23 @@ function Stage1:update(dt)
         self.boss.phase = 2
     elseif self.boss.hppercent > .15 then
         self.boss.phase = 6
-    else
+    elseif self.boss.hppercent > 0 then
         self.boss.phase = 7
+    else
+        self.boss.phase = -1
     end
+
+    if self.boss.phase == -1 then
+        --end of stage 
+        self.boss.phase = -2 
+        Timer.clear(self.mechanictimers)
+
+        Timer.after(2, function() 
+            gStateMachine:change('start')
+        end)
+
+    end
+
 
     if self.boss.phase == 1 then     -- TENNIS BALLS BARRAGE
         self.boss:recenterMove()

@@ -41,6 +41,7 @@ function Entity:init(def)
     self.flashing = false --
 
     self.dead = false
+    self.dopacity = 255
     self.drops = false
     self.currentAnimName = 'name'
 
@@ -113,12 +114,16 @@ function Entity:update(dt)
     self.hitx = self.x + (self.width / 2)
     self.hity = self.y + (self.height / 2)
 
-    if self.health < 0 then
+    if self.health <= 0 then
         self.dead = true
     end
 
     if self.flashing then
         self.flashtime = self.flashtime + dt
+    end
+
+    if self.dead then
+        Timer.tween(1, { [self] = { dopacity = 0 } })
     end
 end
 
@@ -151,8 +156,13 @@ function Entity:render(adjacentOffsetX, adjacentOffsetY)
             self.flashing = false
         end
 
+    else
+        love.graphics.setColor(255, 255, 255)
     end
 
+    if self.dead then
+        love.graphics.setColor(255, 255, 255,self.dopacity/255)
+    end
 
     self.x, self.y = self.x + (adjacentOffsetX or 0), self.y + (adjacentOffsetY or 0)
     self.stateMachine:render()
