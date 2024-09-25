@@ -43,6 +43,7 @@ function Stage1:init(def)
 
     self.mechdelaycount = 1 --checks whether to delay a mechanic start (for mechanic transitions)
     self.mechanictimers = {}
+    self.timersreset = 0
 end
 
 function Stage1:mech1()
@@ -526,11 +527,11 @@ function Stage1:mech4()
             }
             self.stage:addAOE(aoe1)
 
-            Timer.after(t, function()
-                self.mech4counter = 1
-            end)
         end)
         :group(self.mechanictimers)
+        Timer.after(t*5, function()
+            self.mech4counter = 1
+        end)
     end
 end
 
@@ -538,20 +539,52 @@ function Stage1:update(dt)
     self.stage:update(dt)
     Timer.update(dt,self.mechanictimers)
     if self.boss.hppercent > .9 then
+        if self.timersreset < 1 then
+            Timer.clear(self.mechanictimers)
+            self.timersreset = self.timersreset + 1 
+        end
         self.boss.phase = 1
     elseif self.boss.hppercent > .75 then
+        if self.timersreset < 2 then
+            Timer.clear(self.mechanictimers)
+            self.timersreset = self.timersreset + 1 
+        end
         self.boss.phase = 2
     elseif self.boss.hppercent > .60 then
+        if self.timersreset < 3 then
+            Timer.clear(self.mechanictimers)
+            self.timersreset = self.timersreset + 1 
+        end
         self.boss.phase = 3
     elseif self.boss.hppercent > .50 then
+        if self.timersreset < 4 then
+            Timer.clear(self.mechanictimers)
+            self.timersreset = self.timersreset + 1 
+        end
         self.boss.phase = 4
     elseif self.boss.hppercent > .40 then
+        if self.timersreset < 5 then
+            Timer.clear(self.mechanictimers)
+            self.timersreset = self.timersreset + 1 
+        end
         self.boss.phase = 5
     elseif self.boss.hppercent > .30 then
+        if self.timersreset < 6 then
+            Timer.clear(self.mechanictimers)
+            self.timersreset = self.timersreset + 1 
+        end
         self.boss.phase = 2
     elseif self.boss.hppercent > .15 then
+        if self.timersreset < 7 then
+            Timer.clear(self.mechanictimers)
+            self.timersreset = self.timersreset + 1 
+        end
         self.boss.phase = 6
     elseif self.boss.hppercent > 0 then
+        if self.timersreset < 8 then
+            Timer.clear(self.mechanictimers)
+            self.timersreset = self.timersreset + 1 
+        end
         self.boss.phase = 7
     else
         self.boss.phase = -1
