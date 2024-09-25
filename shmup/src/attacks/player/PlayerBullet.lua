@@ -14,10 +14,10 @@ function PlayerBullet:init(player)
 
 
     self.radius = 3
-    self.damage = 1
+    self.damage = 2
 
     --self.traveled = 0 --for projectiles with a limit 
-    self.speed = 100
+    self.speed = 120
     self.done = false --check for deletion
 
 end
